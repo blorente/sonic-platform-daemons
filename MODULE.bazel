@@ -1,6 +1,7 @@
 # Keep bazel_compatibility in sync with sonic-buildimage's .bazelversion.
 module(
     name = "sonic-platform-daemons",
+    version = "0.0.0",
     bazel_compatibility = [">=8.5.1", "<=8.5.1"],
 )
 
@@ -10,28 +11,12 @@ bazel_dep(name = "tar.bzl", version = "0.5.5")
 
 # External SONiC dependencies
 bazel_dep(name = "sonic-py-common", version = "0.0.0")
-local_path_override(
-    module_name = "sonic-py-common",
-    path = "../sonic-py-common",
-)
 
 bazel_dep(name = "sonic-swss-common", version = "0.0.0")
-local_path_override(
-    module_name = "sonic-swss-common",
-    path = "../sonic-swss-common",
-)
 
 bazel_dep(name = "sonic-platform-common", version = "0.0.0")
-local_path_override(
-    module_name = "sonic-platform-common",
-    path = "../sonic-platform-common",
-)
 
 bazel_dep(name = "sonic-build-infra", version = "0.0.0")
-local_path_override(
-    module_name = "sonic-build-infra",
-    path = "../sonic-build-infra",
-)
 
 bazel_dep(name = "rules_distroless", version = "0.0.0")
 git_override(
@@ -41,16 +26,8 @@ git_override(
 )
 
 bazel_dep(name = "sonic-py-swsssdk", version = "0.0.0")
-local_path_override(
-    module_name = "sonic-py-swsssdk",
-    path = "../sonic-py-swsssdk",
-)
 
 bazel_dep(name = "sonic-config-engine", version = "0.0.0")
-local_path_override(
-    module_name = "sonic-config-engine",
-    path = "../sonic-config-engine",
-)
 
 python = use_extension("@rules_python//python/extensions:python.bzl", "python")
 python.toolchain(
